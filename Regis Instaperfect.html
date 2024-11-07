@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .login-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .login-image {
+            width: 60%; /* Ukuran gambar */
+            height: 100%; /* Pastikan tinggi 100% agar mengisi seluruh area */
+            background-image: url('https://shop.myinstaperfect.com/wp-content/uploads/2023/08/HALAL-SKINCOVER.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-container {
+            background-color: pink; /* Warna latar belakang untuk form */
+            color: black; /* Perubahan untuk teks agar lebih terbaca */
+            padding: 50px 30px;
+            width: 40%; /* Lebar form */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px; /* Maksimal lebar form box */
+            color: black;
+        }
+
+        .form-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #ffd0d0;
+            color: black; /* Perubahan untuk teks agar lebih terbaca */
+        }
+
+        .login-link {
+            display: flex; /* Menggunakan flexbox */
+            justify-content: center; /* Menempatkan konten di tengah */
+            margin-top: 20px; /* Tambahkan jarak antara tombol dan teks link */
+        }
+
+        .login-link p {
+            margin-right: 5px; /* Jarak antara teks dan tautan */
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <!-- Bagian kiri untuk gambar produk -->
+    <div class="login-image"></div> <!-- Gambar ditampilkan sebagai background -->
+
+    <!-- Bagian kanan untuk registrasi -->
+    <div class="form-container">
+        <div class="form-box">
+            <h2>Register</h2>
+            <form>
+                <div class="form-group">
+                    <label for="full-name">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="full-name" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" class="form-control" id="register-email" placeholder="Masukkan email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" class="form-control" id="register-password" placeholder="Masukkan password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Ulangi Password</label>
+                    <input type="password" class="form-control" id="confirm-password" placeholder="Ulangi password" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block">Register</button>
+                <div class="login-link"> <!-- Menggunakan flexbox untuk menempatkan teks dan tautan dalam satu baris -->
+                    <p class="text-secondary mb-0">Have an account?</p>
+                    <a href="#" class="text-secondary">Login here</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS, Popper.js, dan jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

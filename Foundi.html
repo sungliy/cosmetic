@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .img-area {
+            display: flex; /* Menggunakan flexbox untuk menempatkan gambar dan teks berdampingan */
+            align-items: center; /* Menjaga gambar dan teks berada di tengah secara vertikal */
+            padding-left: 100px; /* Menggeser seluruh kontainer gambar ke kanan */
+        }
+        
+        .img-area img {
+            margin-right: 20px; /* Menambahkan jarak antara gambar dan teks */
+            max-width: 700px; /* Atur lebar gambar agar sesuai */
+        }
+
+        .price {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .stock {
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background-color: #d89696; /* Tambahkan warna latar belakang untuk tombol */
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img-area">
+        <img src="https://shop.myinstaperfect.com/wp-content/uploads/2022/11/Matte-Fit-Powder-Foundation-HalfOpen-22-Light-Ivory_Final-534x800.jpg" alt="Foundi 01">
+        <div>
+            <h2 style="text-align: center; color: pink;">Foundi 01</h2>
+            <p class="price">Rp 150,000</p>
+            <p class="stock">Stok 10</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>
+            Tempora necessitatibus ipsa, exercitationem unde, pariatur similique quasi <br>
+            saepe qui doloremque magnam est. Illum, doloribus! Aliquam unde aliquid quis <br>
+            provident. Dicta, cum.</p>
+
+            <button class="button">ADD TO CART</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>
