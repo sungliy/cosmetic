@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang Belanja</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #ffd0d0;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .cart-page {
+        margin: 80px auto;
+      }
+
+      .cart-table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .cart-table th,
+      .cart-table td {
+        text-align: left;
+        padding: 15px;
+        vertical-align: middle; /* Perbaiki perataan vertikal */
+      }
+
+      .cart-table th {
+        background-color: #f5f5f5;
+        font-weight: 700;
+        color: #333;
+      }
+
+      .cart-item img {
+        max-width: 80px;
+        height: auto;
+        margin-right: 15px;
+        border-radius: 5px;
+      }
+
+      .total-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #130f40;
+      }
+
+      .checkout-btn {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .checkout-btn:hover {
+        background-color: #e64a19;
+      }
+
+      .quantity-input {
+        width: 80px;
+        display: flex;
+        align-items: center;
+      }
+
+      .quantity-input input {
+        border: 1px solid #ced4da;
+        text-align: center;
+        width: 100%;
+        height: 35px;
+        border-radius: 5px;
+      }
+
+      /* Animasi untuk tombol hapus */
+      .btn-danger {
+        transition: transform 0.2s;
+      }
+
+      .btn-danger:hover {
+        transform: scale(1.1);
+      }
+
+      /* Styling untuk field kode kupon */
+      #coupon-code {
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        width: 200px;
+      }
+
+      /* Styling untuk pesan sukses */
+      .alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+      }
+
+      /* Styling button kupon */
+      #apply-coupon {
+        background-color: #dc3545;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container cart-page">
+      <h2 class="mb-4">Keranjang Belanja</h2>
+
+      <table class="table cart-table">
+        <thead>
+          <tr>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Subtotal</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Item akan ditambahkan di sini -->
+        </tbody>
+      </table>
+
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <input
+            type="text"
+            id="coupon-code"
+            placeholder="Masukkan Kode Kupon"
+            class="form-control"
+          />
+          <button id="apply-coupon" class="btn mt-2">Terapkan</button>
+        </div>
+        <div class="col-md-6 text-right">
+          <p class="total-price">Total: <span id="total-price">Rp0</span></p>
+          <button class="checkout-btn">Lanjutkan Pembayaran</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cartItems = document.getElementById("cart-items");
+      const totalPriceElement = document.getElementById("total-price");
+      const couponCodeInput = document.getElementById("coupon-code");
+      const applyCouponButton = document.getElementById("apply-coupon");
+
+      let products = [
+        { id: 1, name: "Produk A", price: 10000, quantity: 1 },
+        { id: 2, name: "Produk B", price: 20000, quantity: 1 },
+      ];
+
+      function updateCart() {
+        cartItems.innerHTML = "";
+        let total = 0;
+
+        products.forEach((product) => {
+          const subtotal = product.price * product.quantity;
+          total += subtotal;
+
+          cartItems.innerHTML += `
+                    <tr class="cart-item">
+                        <td><img src="path/to/image.jpg" alt="${product.name}">${product.name}</td>
+                        <td>Rp${product.price}</td>
+                        <td>
+                            <div class="quantity-input">
+                                <input type="number" value="${product.quantity}" min="1" onchange="updateQuantity(${product.id}, this.value)" />
+                            </div>
+                        </td>
+                        <td>Rp${subtotal}</td>
+                        <td><button onclick="removeItem(${product.id})" class="btn btn-danger" ">Hapus</button></td>
+                    </tr>
+                `;
+        });
+
+        totalPriceElement.innerText = `Rp${total}`;
+      }
+
+      function changeQuantity(id, change) {
+        const product = products.find((p) => p.id === id);
+        if (product) {
+          product.quantity = Math.max(1, product.quantity + change);
+          updateCart();
+        }
+      }
+
+      function updateQuantity(id, value) {
+        const product = products.find((p) => p.id === id);
+        if (product) {
+          const quantity = Math.max(1, parseInt(value) || 1); // Minimal 1
+          product.quantity = quantity;
+          updateCart();
+        }
+      }
+
+      function removeItem(id) {
+        const index = products.findIndex((p) => p.id === id);
+        if (index > -1) {
+          products.splice(index, 1);
+          updateCart();
+        }
+      }
+
+      applyCouponButton.addEventListener("click", () => {
+        const couponCode = couponCodeInput.value.trim();
+        if (couponCode === "DISKON10") {
+          alert("Kode kupon berhasil diterapkan! Anda mendapatkan diskon 10%.");
+          applyDiscount(0.1);
+        } else {
+          alert("Kode kupon tidak valid.");
+        }
+      });
+
+      function applyDiscount(discount) {
+        let total = 0;
+        products.forEach((product) => {
+          total += product.price * product.quantity;
+        });
+        const discountedTotal = total - total * discount;
+        totalPriceElement.innerText = `Rp${discountedTotal.toFixed(2)}`;
+      }
+
+      // Inisialisasi keranjang
+      updateCart();
+    </script>
+  </body>
+</html>

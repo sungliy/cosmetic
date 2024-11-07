@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;&display=swap"
+      rel="stylesheet"
+    />
+    <title>Home-Pageeeee</title>
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="header">
+      <a href="#" class="logo">LOGO</a>
+      <nav class="nav-container">
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="#">Product</a>
+            <!-- Dropdown Menu -->
+            <div class="dropdown-content">
+              <a href="/Product Face Page/ProductFace.html">Face Make Up</a>
+              <a href="/Product Eye Page/ProductEye.html">Eye Make Up</a>
+              <a href="/Product Lips Page/ProductLips.html">Lip Make Up</a>
+            </div>
+          </li>
+          <li><a href="/Contact Page/#">Contact</a></li>
+          <li><a href="/Contact Page/#">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div
+          class="fas fa-shopping-cart"
+          id="cart-btn"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <span id="cart-count">0</span>
+        </div>
+        <div class="fas fa-user" id="user-btn"></div>
+      </div>
+
+      <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="Search Product" />
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+    </header>
+    <!-- header end -->
+
+    <!-- Carousel start -->
+    <div class="container-fluid mb-5" style="height: auto">
+      <div id="carouselExampleCaptions" class="carousel slide container-fluid">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            style="color: black"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="/Assets/image.png"
+              class="d-block w-100 object-fit-cover"
+              alt="..."
+              style="height: 768px"
+            />
+            <div class="carousel-caption">
+              <h5 class="fs-1">First slide label</h5>
+              <p class="fs-2">
+                Some representative placeholder content for the first slide.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="/Assets/Jang gyuri image3.png"
+              class="d-block w-100 object-fit-cover"
+              alt="..."
+              style="height: 768px"
+            />
+            <div class="carousel-caption">
+              <h5 class="fs-1">Second slide label</h5>
+              <p class="fs-2">
+                Some representative placeholder content for the second slide.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="/Assets/Lee Jae In Pict.png"
+              class="d-block w-100 object-fit-cover"
+              alt="..."
+              style="height: 768px"
+            />
+            <div class="carousel-caption">
+              <h5 class="fs-1">Third slide label</h5>
+              <p class="fs-2">
+                Some representative placeholder content for the third slide.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- Carousel End -->
+
+    <!-- Product category-->
+    <section class="category" style="padding-bottom: 5rem">
+      <div class="segment-Title">
+        <h1 class="heading">Product <span>Category</span></h1>
+      </div>
+      <div
+        class="row row-cols-1 row-cols-md-3 g-4 mx-auto justify-content-center mb-5"
+        style="width: 80%"
+      >
+        <div class="col">
+          <div class="card text-white position-relative overflow-hidden">
+            <img
+              src="/Assets/Product1.jpeg"
+              class="card-img"
+              alt="Men's Fashion"
+              style="height: 200px; object-fit: cover"
+            />
+            <div
+              class="card-img-overlay d-flex flex-column justify-content-end text-container"
+            >
+              <h5 class="card-title">Face Make Up</h5>
+              <a
+                href="/Product Face Page/ProductFace.html"
+                class="card-text hidden-text"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-white position-relative overflow-hidden">
+            <img
+              src="/Assets/Product2.jpeg"
+              class="card-img"
+              alt="Women's Fashion"
+              style="height: 200px; object-fit: cover"
+            />
+            <div
+              class="card-img-overlay d-flex flex-column justify-content-end text-container"
+            >
+              <h5 class="card-title">Eye Make Up</h5>
+              <a
+                href="/Product Eye Page/ProductEye.html"
+                class="card-text hidden-text"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card text-white position-relative overflow-hidden">
+            <img
+              src="/Assets/Product3.jpeg"
+              class="card-img"
+              alt="Baby Fashion"
+              style="height: 200px; object-fit: cover"
+            />
+            <div
+              class="card-img-overlay d-flex flex-column justify-content-end text-container"
+            >
+              <h5 class="card-title">Lips Make Up</h5>
+              <a
+                href="/Product Lips Page/ProductLips.html"
+                class="card-text hidden-text"
+                >Shop Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Product category-->
+
+    <div class="notification" id="notification">
+      <span id="notification-message"></span>
+    </div>
+    <!-- Offcanvas for Shopping Cart -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Shopping Cart</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label=" Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="cart-items" class="list-group">
+          <!-- Items will be added here dynamically -->
+        </ul>
+        <button class="btn btn-primary mt-3" onclick="goToCartPage()">
+          Go to Cart Page
+        </button>
+      </div>
+    </div>
+
+    <!-- End keranjang belanja -->
+
+    <!-- Section New Arrival Start -->
+    <section class="product">
+      <div class="container">
+        <h1 class="heading">New Arrival</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="/Assets/FaceProduct.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lotion</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="price">$4.99/- - 10.99/-</p>
+                <span class="badge bg-success fs-5">New</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  onclick="addToCart('Lotion')"
+                  >Add to Cart</a
+                >
+                <a href="#" class="btn btn-secondary" style="margin-left: 10px"
+                  >View Detail</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="/Assets/FaceProduct2.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Cairan</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="price">$4.99/- - 10.99/-</p>
+                <span class="badge bg-success fs-5">New</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  onclick="addToCart('Cairan')"
+                  >Add to Cart</a
+                >
+                <a href="#" class="btn btn-secondary" style="margin-left: 10px"
+                  >View Detail</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="/Assets/EyeProduct.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Maskara</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="price">$4.99/- - 10.99/-</p>
+                <span class="badge bg-success fs-5">New</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  onclick="addToCart('Maskara')"
+                  >Add to Cart</a
+                >
+                <a href="#" class="btn btn-secondary" style="margin-left: 10px"
+                  >View Detail</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- New Arrival End -->
+    <!-- Section New Arrival End -->
+
+    <!-- Section New Arrival Start -->
+    <section class="product">
+      <div class="container">
+        <h1 class="heading">Best Seller</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="/Assets/FaceProduct.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Bedak</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="price">$4.99/- - 10.99/-</p>
+                <span class="badge bg-danger fs-5">Best</span>
+                <a href="#" class="btn btn-primary" onclick="addToCart('Bedak')"
+                  >Add to Cart</a
+                >
+                <a href="#" class="btn btn-secondary" style="margin-left: 10px"
+                  >View Detail</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="/Assets/FaceProduct2.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Cream</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="price">$4.99/- - 10.99/-</p>
+                <span class="badge bg-danger fs-5">Best</span>
+                <a href="#" class="btn btn-primary" onclick="addToCart('Cream')"
+                  >Add to Cart</a
+                >
+                <a href="#" class="btn btn-secondary" style="margin-left: 10px"
+                  >View Detail</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="/Assets/EyeProduct.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Lipstik</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="price">$4.99/- - 10.99/-</p>
+                <span class="badge bg-danger fs-5">Best</span>
+                <a
+                  href="#"
+                  class="btn btn-primary"
+                  onclick="addToCart('Lipstik')"
+                  >Add to Cart</a
+                >
+                <a href="#" class="btn btn-secondary" style="margin-left: 10px"
+                  >View Detail</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Best Arrival End -->
+
+    <!-- Footer Start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="logo.png" alt="Logo Instaperfect" height="50" />
+          </div>
+          <div class="col-md-4 text-center">
+            <p>&copy; 2024 INSTAPERFECT. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-4 text-end">
+            <a href="#" target="_blank"
+              ><i class="fab fa-facebook-f fa-2x"></i
+            ></a>
+            <a href="#" target="_blank"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let searchForm = document.querySelector(".search-form");
+
+      document.querySelector("#search-btn").onclick = () => {
+        searchForm.classList.toggle("active");
+      };
+
+      let cart = [];
+
+      function addToCart(productName, productImage, productPrice) {
+        cart.push({
+          name: productName,
+          image: productImage,
+          price: productPrice,
+        });
+        updateCartCount();
+        updateCartItems();
+        showNotification(productName);
+      }
+
+      function updateCartCount() {
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.textContent = cart.length;
+      }
+
+      function updateCartItems() {
+        const cartItemsElement = document.getElementById("cart-items");
+        cartItemsElement.innerHTML = "";
+        cart.forEach((item, index) => {
+          const listItem = document.createElement("li");
+
+          // Create image element
+          const img = document.createElement("img");
+          img.src = item.image;
+          img.alt = item.name;
+
+          // Create product name element
+          const productNameElement = document.createElement("span");
+          productNameElement.textContent = item.name;
+
+          // Create product price element
+          const productPriceElement = document.createElement("span");
+          productPriceElement.textContent = "Rp " + item.price;
+
+          // Create delete button
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "btn btn-danger btn-sm";
+          deleteButton.textContent = "Remove";
+          deleteButton.onclick = () => {
+            removeFromCart(index);
+          };
+
+          listItem.appendChild(img);
+          listItem.appendChild(productNameElement);
+          listItem.appendChild(productPriceElement);
+          listItem.appendChild(deleteButton);
+          cartItemsElement.appendChild(listItem);
+        });
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1); // Remove item from cart
+        updateCartCount(); // Update cart count
+        updateCartItems(); // Update cart items display
+      }
+
+      function goToCartPage() {
+        // Redirect to cart page
+        window.location.href = "cart.html";
+      }
+
+      function showNotification(productName) {
+        // Set notification message
+        const notificationMessage = document.getElementById(
+          "notification-message"
+        );
+        notificationMessage.textContent =
+          productName + " has been added to cart!";
+
+        // Show notification
+        const notification = document.getElementById("notification");
+        notification.classList.add("show");
+
+        // Hide notification after 3 seconds
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      // User Login or not
+      document
+        .getElementById("user-btn")
+        .addEventListener("click", function () {
+          window.location.href = "login.html"; // Ganti 'login.html' dengan path file halaman login Anda
+        });
+    </script>
+  </body>
+</html>

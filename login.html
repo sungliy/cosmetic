@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(to right, #ffd0d0, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .login-container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 900px; /* Lebar container login */
+        overflow: hidden;
+        display: flex; /* Untuk menata gambar dan form login */
+      }
+
+      .login-box {
+        background: pink;
+        color: #fff;
+        padding: 40px;
+        width: 50%; /* Lebar bagian login */
+        text-align: center;
+      }
+
+      .login-box h2 {
+        margin-bottom: 30px;
+      }
+
+      .form-box {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-label {
+        color: #130f40;
+        justify-content: left;
+      }
+      .form-control {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+      }
+
+      .btn-custom {
+        background-color: #ffd0d0;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-custom:hover {
+        background-color: pink;
+      }
+
+      .login-image {
+        width: 50%; /* Lebar bagian gambar */
+        background-image: url("https://shop.myinstaperfect.com/wp-content/uploads/2023/08/HALAL-SKINCOVER.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .forgot-password a {
+        color: #130f40;
+        text-decoration: none;
+      }
+
+      .social-icons {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 20px;
+        color: #777;
+        transition: color 0.3s;
+      }
+
+      .social-icons a:hover {
+        color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+        <div class="form-box">
+          <form id="loginForm">
+            <div class="mb-3 text-start">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email"
+                required
+              />
+            </div>
+            <div class="mb-3 text-start">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+                required
+              />
+              <div class="forgot-password text-start">
+                <a href="#" class="text-secondary">Forgot password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-custom">Sign In</button>
+            <div class="text-center mt-3">
+              <div class="d-flex align-items-center">
+                <p class="text-secondary mb-0">Don't have an account?</p>
+                <a href="/LandingPage/register.html" class="text-secondary ms-2"
+                  >Register here</a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-google"></i></a>
+        </div>
+
+        <!-- Back to Home Button -->
+        <a href="/LandingPage/index.html" class="btn btn-outline-light mt-3">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+      </div>
+      <div class="login-image"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Mencegah pengiriman form secara default
+
+          // Ambil nilai email dan password
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // Data pengguna untuk validasi
+          const users = [
+            { email: "user1@example.com", password: "password1" },
+            { email: "user2@example.com", password: "password2" },
+          ];
+
+          // Validasi kredensial
+          const user = users.find(
+            (user) => user.email === email && user.password === password
+          );
+          if (user) {
+            // Jika validasi berhasil, arahkan ke halaman profile
+            window.location.href = "profile.html";
+          } else {
+            alert("Email atau password salah!");
+          }
+        });
+    </script>
+  </body>
+</html>

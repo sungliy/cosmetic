@@ -1,0 +1,390 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@0,100;300;400;500;600&display=swap"); */
+
+--root {
+  --background-color-pink: rgb(255, 208, 208);
+  --black: #130f40;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --border: 1rem solid rgba(0, 0, 0, 0.1);
+  --outline: 1rem solid rgba(0, 0, 0, 0.3);
+}
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  /* background: #fff; */
+  background: linear-gradient(#ffd0d0, #ffd0d0);
+}
+
+/* bagian header dan navbar */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8rem 9%;
+  background: #ffd0d0;
+  box-shadow: var(--box-shadow);
+}
+
+.header a {
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+/* logo */
+.header .logo {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+/* navbar list */
+.nav-links li a {
+  font-size: 2rem;
+  margin: 0 1rem;
+  color: var(--black);
+}
+
+.nav-links li a:hover {
+  color: #dc3545;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  text-decoration: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-links li:hover .dropdown-content {
+  display: block;
+}
+
+/* icons */
+.header .icons div {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--black);
+  font-size: 2rem;
+  margin-right: 0.3rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.header .icons div:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+#menu-btn {
+  display: none;
+}
+
+.header .search-form {
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  width: 50rem;
+  height: 5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+}
+
+.header .search-form.active {
+  right: 2rem;
+  transition: 0.4s linear;
+}
+
+.header .search-form input {
+  height: 100%;
+  width: 100%;
+  background: none;
+  text-transform: none;
+  font-size: 1.6rem;
+  color: var(--black);
+  padding: 0 1.5rem;
+}
+
+.header .search-form label {
+  font-size: 2.2rem;
+  padding-right: 1.5rem;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.header .search-form label:hover {
+  color: #dc3545;
+}
+/* header dan navbar ending */
+
+/* carousel start */
+.carousel {
+  margin-top: 8rem;
+  z-index: 0;
+}
+/* carousel end */
+
+/* Product di bawah carousel */
+section {
+  padding: 2rem 7%;
+}
+
+.category {
+  background-image: url("Assets/Backgroundimage.jpeg"); /* Ganti dengan path gambar Anda */
+  background-size: cover; /* Menutupi seluruh area body */
+  background-position: center; /* Mengatur posisi gambar di tengah */
+  background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+}
+.heading {
+  text-align: center;
+  padding: 2rem 0;
+  padding-bottom: 3rem;
+  font-size: 3.5rem;
+  color: var(--black);
+  font-weight: bold;
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+}
+
+.heading span {
+  background: #dc3545;
+  color: #fff;
+  display: inline-block;
+  padding: 0.5rem 3rem;
+  clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.text-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card-title,
+.card-text {
+  margin: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-title {
+  transform: translateY(35px); /* Position it lower initially */
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.card-text {
+  opacity: 0; /* Hide initially */
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.card a {
+  background: rgba(255, 208, 208, 0.9);
+  width: 25%;
+  padding-left: 0.6rem;
+  border-radius: 2px;
+}
+
+.card:hover .text-container {
+  background: rgba(0, 0, 0, 0.3); /* Darken the background on hover */
+}
+
+.card:hover .card-title {
+  transform: translateY(-5px); /* Move title up */
+}
+
+.card:hover .card-text {
+  opacity: 1; /* Show "Shop Now" text */
+  transform: translateY(0); /* Position "Shop Now" below title */
+}
+
+/* Product dibawah carouosel end */
+
+/* CART  */
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#cart-items li {
+  display: flex;
+  align-items: center;
+  margin: 10px 0; /* Jarak antara item */
+  padding: 10px; /* Padding dalam item */
+  border: 1px solid #ccc; /* Garis batas untuk setiap item */
+  border-radius: 5px; /* Sudut melengkung untuk batas */
+  background-color: #f9f9f9; /* Warna latar belakang item */
+}
+
+#cart-items img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px; /* Jarak antara gambar dan nama produk */
+  margin-left: auto;
+}
+
+#cart-items span {
+  margin-right: 70px; /* Jarak antara nama produk dan harga */
+}
+
+.btn-danger {
+  margin-left: 0; /* Menempatkan tombol di sisi kanan */
+}
+
+/* Toast notif */
+.notification {
+  display: none; /* Hide by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #dc3545; /* Green background */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000; /* Ensure it appears above other elements */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+  opacity: 0; /* Start with opacity 0 */
+}
+
+.notification.show {
+  display: block; /* Show notification */
+  opacity: 1; /* Fade in */
+}
+
+/* PRODUCT NEW ARRIVAL */
+
+.product {
+  padding-bottom: 10rem;
+}
+
+.product .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product .btn:hover {
+  background: #dc3545;
+}
+
+.product .box:hover {
+  outline-offset: -1rem;
+  outline: 2px solid rgb(255, 208, 208);
+}
+
+.product .card-img-top {
+  width: 100%;
+  height: 300px; /* Atur tinggi gambar sesuai kebutuhan */
+  object-fit: cover;
+}
+
+h5 {
+  font-size: 1.8rem;
+  padding-top: 1rem;
+}
+
+.price {
+  font-size: 1.8rem;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #dc3545;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: 2.5em;
+  z-index: 10;
+}
+
+.product h1 {
+  animation: bounce 1s ease-in-out infinite; /* Nama animasi, durasi, timing-function, dan iterasi */
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0); /* Posisi awal dan akhir */
+  }
+  50% {
+    transform: translateY(-10px); /* Bergerak ke atas 10px */
+  }
+}
+/* Product NEW ARRIVAL dan BEST */
+
+/* Footer style */
+.footer {
+  background-color: #f8f9fa; /* Warna latar belakang footer */
+  padding: 30px 0;
+  margin-top: 50px; /* Jarak antara konten dan footer */
+}
+
+.footer a {
+  color: #333; /* Warna ikon sosmed */
+  margin: 0 10px; /* Jarak antar ikon */
+  transition: color 0.3s ease; /* Efek transisi saat hover */
+}
+
+.footer a:hover {
+  color: #ff6f61; /* Warna ikon saat dihover */
+}
+
+/* Footer end */
