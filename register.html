@@ -16,30 +16,48 @@
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
       body {
-        font-family: "Poppins", sans-serif;
-        background: #ffd0d0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
+  font-family: "Poppins", sans-serif;
+  background: #ffd0d0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
 
-      .login-container {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        width: 900px; /* Lebar container login */
-        overflow: hidden;
-        display: flex; /* Untuk menata gambar dan form login */
-      }
+.login-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 900px; /* Atur lebar container */
+  margin: auto;
+  display: flex;
+  overflow: hidden;
+}
 
-      .login-box {
-        background: pink;
-        color: #fff;
-        padding: 20px;
-        width: 50%; /* Lebar bagian login */
-        text-align: center;
-      }
+.login-image {
+  width: 50%; /* Lebar gambar yang lebih kecil */
+  background-size: cover;
+  background-position: center;
+}
+
+.login-box {
+  width: 50%; /* Lebar form */
+  background: pink;
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-box {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
       .login-box h2 {
         margin-bottom: 30px;
@@ -149,6 +167,30 @@
                 class="form-control"
                 id="confirm-password"
                 placeholder="Confirm Password"
+                required
+              />
+            </div>
+            <div class="mb-3 text-start">
+              <label for="Phone number" class="form-label"
+                >Phone Number</label
+              >
+              <input
+                type="phone"
+                class="form-control"
+                id="Phone-num"
+                placeholder="Phone number"
+                required
+              />
+            </div>
+            <div class="mb-3 text-start">
+              <label for="address" class="form-label"
+                >Address</label
+              >
+              <input
+                type="address"
+                class="form-control"
+                id="address"
+                placeholder="address"
                 required
               />
             </div>
