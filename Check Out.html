@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil Saya</title>
+    <title>Checkout Page</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      --root {
+      /* Root variables for custom colors and styles */
+      :root {
         --background-color-pink: rgb(255, 208, 208);
         --black: #130f40;
         --light-color: #666;
@@ -21,6 +27,8 @@
         --border: 1rem solid rgba(0, 0, 0, 0.1);
         --outline: 1rem solid rgba(0, 0, 0, 0.3);
       }
+
+      /* General reset and font */
       * {
         font-family: "Poppins", sans-serif;
         margin: 0;
@@ -41,11 +49,10 @@
       }
 
       body {
-        /* background: #fff; */
         background: #ffd0d0;
       }
 
-      /* bagian header dan navbar */
+      /* Header and Navbar */
       .header {
         position: fixed;
         top: 0;
@@ -55,9 +62,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.8rem 9%;
+        padding: 1rem 9%;
         background: white;
         box-shadow: var(--box-shadow);
+        font-size: 1rem;
       }
 
       .header a {
@@ -65,14 +73,21 @@
         justify-content: space-between;
       }
 
-      /* logo */
+      /* Logo */
       .header .logo {
         font-size: 2.5rem;
         font-weight: bolder;
         color: var(--black);
       }
 
-      /* navbar list */
+      /* Navbar Links */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
       .nav-links li a {
         font-size: 2rem;
         margin: 0 1rem;
@@ -80,18 +95,10 @@
       }
 
       .nav-links li a:hover {
-        color: pink;
-      }
-      .nav-links {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      .nav-links a {
-        text-decoration: none;
+        color: #ffd0d0;
       }
 
+      /* Dropdown Menu */
       .dropdown-content {
         display: none;
         position: absolute;
@@ -112,7 +119,7 @@
         display: block;
       }
 
-      /* icons */
+      /* Icons */
       .header .icons div {
         height: 4.5rem;
         width: 4.5rem;
@@ -127,7 +134,7 @@
       }
 
       .header .icons div:hover {
-        background-color: pink;
+        background-color: #ffd0d0;
         color: #fff;
       }
 
@@ -135,6 +142,7 @@
         display: none;
       }
 
+      /* Search Form */
       .header .search-form {
         position: absolute;
         top: 110%;
@@ -172,143 +180,141 @@
       }
 
       .header .search-form label:hover {
-        color: pink;
+        color: #ffd0d0;
       }
       /* header dan navbar ending */
-      /* CART  */
-      #cart-items {
-        list-style-type: none;
-        padding: 0;
-      }
 
-      #cart-items li {
-        display: flex;
-        align-items: center;
-        margin: 10px 0; /* Jarak antara item */
-        padding: 10px; /* Padding dalam item */
-        border: 1px solid #ccc; /* Garis batas untuk setiap item */
-        border-radius: 5px; /* Sudut melengkung untuk batas */
-        background-color: #f9f9f9; /* Warna latar belakang item */
-      }
-
-      #cart-items img {
-        width: 50px;
-        height: 50px;
-        margin-right: 20px; /* Jarak antara gambar dan nama produk */
-        margin-left: auto;
-      }
-
-      #cart-items span {
-        margin-right: 70px; /* Jarak antara nama produk dan harga */
-      }
-
-      .btn-danger {
-        margin-left: 0; /* Menempatkan tombol di sisi kanan */
-      }
-
-      /* Toast notif */
-      .notification {
-        display: none; /* Hide by default */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: pink; /* Green background */
-        color: white;
-        padding: 15px;
-        border-radius: 5px;
-        z-index: 1000; /* Ensure it appears above other elements */
-        transition: opacity 0.5s ease; /* Smooth transition for opacity */
-        opacity: 0; /* Start with opacity 0 */
-      }
-
-      .notification.show {
-        display: block; /* Show notification */
-        opacity: 1; /* Fade in */
-      }
-      /* Profile style */
-      .container {
-        padding-top: 10rem;
-      }
-      .profile-header {
-        background: pink;
-        color: white;
-        text-align: center;
-        padding: 2rem 0;
-      }
-      .profile-header img {
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        border: 5px solid white;
-        object-fit: cover;
-      }
-      .profile-info {
-        background: white;
+      /* Main Content - Checkout Form */
+      .checkout-container {
+        max-width: 1100px;
+        margin: 9rem auto 6rem auto;
         padding: 2rem;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        box-shadow: var(--box-shadow);
+        border-radius: 0.5rem;
       }
-      .profile-info ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+
+      .checkout-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: var(--black);
+        margin-bottom: 2rem;
       }
-      .profile-info li {
+
+      .checkout-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .checkout-form input,
+      .checkout-form select {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.6rem;
+        border-radius: 0.5rem;
+        border: 1px solid #ddd;
         margin-bottom: 1rem;
       }
-      .profile-info i {
-        margin-right: 0.5rem;
-        width: 20px;
+
+      /* Improved Notes Section */
+      .notes-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
       }
 
-      .profile-info h3,
-      .profile-info span,
-      .fas {
+      .notes-label {
+        font-size: 1.6rem;
+        color: var(--black);
+        margin-bottom: 0.5rem;
+      }
+
+      .notes-input {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.6rem;
+        border-radius: 0.5rem;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+        resize: vertical;
+      }
+
+      .notes-input:focus {
+        outline: none;
+        border: 1px solid pink;
+        box-shadow: 0 0 5px pink;
+      }
+
+      .checkout-summary {
+        background-color: #f9f9f9;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--box-shadow);
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto; /* Sesuaikan margin-top sesuai kebutuhan */
+        position: relative; /* Menambahkan posisi relative */
+        margin-top: -4rem;
+        margin-bottom: 90px;
+      }
+
+      .checkout-summary h3 {
         font-size: 2rem;
+        color: var(--black);
+        margin-bottom: 1rem;
       }
 
-      .btn {
-        font-size: 1.5rem;
+      .checkout-summary p {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
       }
-      .btn-custom:hover {
+
+      .btn-checkout {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.8rem;
+        background-color: pink;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .btn-checkout:hover {
         background-color: pink;
       }
-
-      .modal input {
-        font-size: 1.2rem;
-      }
-      /* profile end */
+      /* checkout end */
 
       /* Footer style */
       .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; /* Membuat footer mencakup seluruh lebar halaman */
-    background-color: #f8f9fa; /* Warna latar belakang footer */
-    padding: 20px 0;
-    text-align: center;
-    z-index: 10; /* Memastikan footer berada di atas elemen lainnya jika ada */
-}
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 20px 0;
+        text-align: center;
+        z-index: 10;
+      }
 
-.footer a {
-    color: #333; /* Warna ikon sosmed */
-    margin: 0 10px; /* Jarak antar ikon */
-    transition: color 0.3s ease; /* Efek transisi saat hover */
-}
+      .footer a {
+        color: #333;
+        margin: 0 10px;
+        transition: color 0.2s ease;
+      }
 
-.footer a:hover {
-    color: pink; /* Warna ikon saat dihover */
-}
-
-      /* Footer end */
+      .footer a:hover {
+        color: pink;
+      }
     </style>
   </head>
   <body>
     <!-- header start -->
     <header class="header">
-      <a href="index.html" class="logo" style="color: #ff99a3 ;">INSTPRFCT</a>
+      <a href="index.html" class="logo">LOGO</a>
       <nav class="nav-container">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -375,135 +381,61 @@
         </button>
       </div>
     </div>
-
-    <!-- End keranjang belanja -->
-    <div class="container mt-5">
-      <div class="profile-header justify-content-center">
-        <img
-          src="https://via.placeholder.com/150"
-          alt="Foto Profil"
-          id="profilePicture"
-        />
-        <input type="file" id="uploadPhoto" style="display: none" />
-        <button
-          class="btn btn-secondary btn-sm mt-2"
-          onclick="document.getElementById('uploadPhoto').click()"
-        >
-          <i class="fas fa-camera"></i>
-        </button>
-        <h1 id="profileName">Nama Anda</h1>
-      </div>
-      <div class="profile-info">
-        <h3>Informasi Profil</h3>
-        <ul class="list-unstyled">
-          <li>
-            <i class="fas fa-user"></i> <span id="fullName">Nama Lengkap</span>
-          </li>
-          <li>
-            <i class="fas fa-envelope"></i>
-            <span id="email">email@anda.com</span>
-          </li>
-          <li>
-            <i class="fas fa-phone"></i>
-            <span id="phoneNumber">+62 123 456 7890</span>
-          </li>
-          <li>
-            <i class="fas fa-map-marker-alt"></i>
-            <span id="address">Alamat Lengkap</span>
-          </li>
-        </ul>
-        <button
-          class="btn btn-primary mr-2"
-          style="background-color: pink; border-color: pink;"
-          data-bs-toggle="modal"
-          data-bs-target="#editProfileModal"
-        >
-          Edit Profil
-        </button>
-        <button onclick="logout()" style="background-color: pink; border-color: pink;" class="btn btn-danger">Logout</button>
-      </div>
-    </div>
-
-    <!-- Modal Edit Profil -->
-    <div
-      class="modal fade fs-3"
-      id="editProfileModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="editProfileModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header justify-content-between">
-            <h5 class="modal-title" id="editProfileModalLabel">Edit Profil</h5>
-            <button
-              type="button"
-              class="close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="editProfileForm">
-              <div class="form-group">
-                <label for="fullNameInput">Nama Lengkap:</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="fullNameInput"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="emailInput">Email:</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="emailInput"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="phoneNumberInput">No. Telepon:</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="phoneNumberInput"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="addressInput">Alamat:</label>
-                <textarea
-                  class="form-control"
-                  id="addressInput"
-                  rows="3"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">
-                Simpan Perubahan
-              </button>
-            </form>
+    <!-- checkout start -->
+    <div class="checkout-container">
+      <h2 class="checkout-title">Order Checkout</h2>
+      <form class="checkout-form">
+        <div>
+          <input type="text" id="full-name" placeholder="Full Name" required />
+          <input type="email" id="email" placeholder="Email Address" required />
+          <input type="tel" id="phone" placeholder="Phone Number" required />
+          <input
+            type="text"
+            id="address"
+            placeholder="Shipping Address"
+            required
+          />
+        </div>
+        <div>
+          <select id="payment-method">
+            <option value="">Select Payment Method</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bank-transfer">Bank Transfer</option>
+          </select>
+          <div class="notes-container">
+            <label for="notes" class="notes-label">Notes</label>
+            <textarea
+              id="notes"
+              placeholder="Any special requests or additional information"
+              rows="5"
+              required
+              class="notes-input"
+            ></textarea>
           </div>
         </div>
-      </div>
+      </form>
+    </div>
+    <!-- checkout summary -->
+    <div class="checkout-summary">
+      <h3>Order Summary</h3>
+      <p>Subtotal: $120.00</p>
+      <p>Shipping: $10.00</p>
+      <p>Total: $130.00</p>
+      <button class="btn-checkout">Proceed to Payment</button>
     </div>
 
     <!-- Footer Start-->
     <footer class="footer">
-      <div class="container-fluid justify-content-center">
-        <div class="row">
-          <div class="col-md-4">
+      <div class="container">
+        <div class="row m-2">
+          <div class="col-md-4 text-start">
             <img src="logo.png" alt="Logo Instaperfect" height="50" />
           </div>
-          <div class="col-md-4 text-black">
+          <div class="col-md-4 text-center">
             <p>&copy; 2024 INSTAPERFECT. All Rights Reserved.</p>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 text-end">
             <a href="#" target="_blank"
               ><i class="fab fa-facebook-f fa-2x"></i
             ></a>
@@ -516,9 +448,8 @@
       </div>
     </footer>
     <!-- Footer End-->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       let searchForm = document.querySelector(".search-form");
 
@@ -614,50 +545,6 @@
         .addEventListener("click", function () {
           window.location.href = "login.html"; // Ganti 'login.html' dengan path file halaman login Anda
         });
-
-      function logout() {
-        localStorage.removeItem("loggedIn");
-        window.location.href = "login.html";
-      }
-
-      document
-        .getElementById("uploadPhoto")
-        .addEventListener("change", function (event) {
-          const file = event.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              document.getElementById("profilePicture").src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-
-      document
-        .getElementById("editProfileForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const fullName = document.getElementById("fullNameInput").value;
-          const email = document.getElementById("emailInput").value;
-          const phoneNumber = document.getElementById("phoneNumberInput").value;
-          const address = document.getElementById("addressInput").value;
-
-          document.getElementById("fullName").textContent = fullName;
-          document.getElementById("email").textContent = email;
-          document.getElementById("phoneNumber").textContent = phoneNumber;
-          document.getElementById("address").textContent = address;
-
-          $("#editProfileModal").modal("hide");
-        });
-
-      // Ambil data dari LocalStorage
-      const name = localStorage.getItem("name");
-      const email = localStorage.getItem("email");
-
-      // Tampilkan data di halaman profile
-      document.getElementById("profileName").textContent = name;
-      document.getElementById("fullName").textContent = name; // Asumsikan 'fullName' adalah ID untuk elemen nama lengkap
-      document.getElementById("email").textContent = email;
     </script>
   </body>
 </html>

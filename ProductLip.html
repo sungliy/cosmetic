@@ -62,7 +62,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 1.8rem 9%;
-        background: #ffd0d0;
+        background: white;
         box-shadow: var(--box-shadow);
       }
 
@@ -239,10 +239,10 @@
         margin-top: 10rem;
       }
       .header-title {
-        text-align: center;
+        text-align: left;
         color: white;
         margin: 30px 0;
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: bold;
       }
       .browse {
@@ -283,15 +283,8 @@
         position: relative;
         overflow: hidden;
       }
-      .product:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      }
       .product img {
         transition: transform 0.3s;
-      }
-      .product img:hover {
-        transform: scale(1.1);
       }
       .badge {
         position: absolute;
@@ -353,22 +346,26 @@
 
       /* Footer style */
       .footer {
-        background-color: #f8f9fa; /* Warna latar belakang footer */
-        padding: 30px 0;
-        margin-top: 50px; /* Jarak antara konten dan footer */
-        padding: 20px 0;
-        text-align: center;
-      }
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Membuat footer mencakup seluruh lebar halaman */
+    background-color: #f8f9fa; /* Warna latar belakang footer */
+    padding: 20px 0;
+    text-align: center;
+    z-index: 10; /* Memastikan footer berada di atas elemen lainnya jika ada */
+}
 
-      .footer a {
-        color: #333; /* Warna ikon sosmed */
-        margin: 0 10px; /* Jarak antar ikon */
-        transition: color 0.3s ease; /* Efek transisi saat hover */
-      }
+.footer a {
+    color: #333; /* Warna ikon sosmed */
+    margin: 0 10px; /* Jarak antar ikon */
+    transition: color 0.3s ease; /* Efek transisi saat hover */
+}
 
-      .footer a:hover {
-        color: #ff6f61; /* Warna ikon saat dihover */
-      }
+.footer a:hover {
+    color: pink; /* Warna ikon saat dihover */
+}
+
 
       /* Footer end */
     </style>
@@ -376,7 +373,7 @@
   <body>
     <!-- header start -->
     <header class="header">
-      <a href="#" class="logo">LOGO</a>
+      <a href="index.html" class="logo" style="color: #ff99a3 ;">INSTPRFCT</a>
       <nav class="nav-container">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -448,55 +445,8 @@
 
     <!-- Product eye page -->
     <div class="container">
-      <h3 class="header-title">EYE PRODUCT</h3>
+      <h3 class="header-title">LIP PRODUCT</h3>
       <!-- Carousel -->
-      <div
-        id="productCarousel"
-        class="carousel slide mb-4"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="https://shop.myinstaperfect.com/wp-content/uploads/2022/11/Matte-Fit-Powder-Foundation-HalfOpen-22-Light-Ivory_Final-534x800.jpg"
-              class="d-block w-100"
-              alt="Product 1"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://shop.myinstaperfect.com/wp-content/uploads/2022/11/Matte-Fit-Powder-Foundation-HalfOpen-32-True-Beige_Final-534x800.jpg"
-              class="d-block w-100"
-              alt="Product 2"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://shop.myinstaperfect.com/wp-content/uploads/2022/11/Matte-Fit-Powder-Foundation-HalfOpen-43-Creme-Sand_Final-534x800.jpg"
-              class="d-block w-100"
-              alt="Product 3"
-            />
-          </div>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#productCarousel"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Sebelumnya</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#productCarousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Selanjutnya</span>
-        </button>
-      </div>
 
       <div class="row">
         <div class="col-md-3">

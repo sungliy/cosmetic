@@ -43,7 +43,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.8rem 9%;
-  background: #ffd0d0;
+  background: white;
   box-shadow: var(--box-shadow);
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #dc3545;
+  color: pink;
 }
 .nav-links {
   display: flex;
@@ -114,7 +114,7 @@ body {
 }
 
 .header .icons div:hover {
-  background-color: #dc3545;
+  background-color: pink;
   color: #fff;
 }
 
@@ -159,7 +159,7 @@ body {
 }
 
 .header .search-form label:hover {
-  color: #dc3545;
+  color: pink;
 }
 /* header dan navbar ending */
 
@@ -192,7 +192,7 @@ section {
 }
 
 .heading span {
-  background: #dc3545;
+  background: #e68bbe;
   color: #fff;
   display: inline-block;
   padding: 0.5rem 3rem;
@@ -289,7 +289,7 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #dc3545; /* Green background */
+  background-color: pink; /* Green background */
   color: white;
   padding: 15px;
   border-radius: 5px;
@@ -320,7 +320,7 @@ section {
 }
 
 .product .btn:hover {
-  background: #dc3545;
+  background: pink;
 }
 
 .product .box:hover {
@@ -347,7 +347,7 @@ h5 {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #dc3545;
+  background-color: pink;
   color: #fff;
   padding: 15px 20px;
   border-radius: 5px;
@@ -384,7 +384,7 @@ h5 {
 }
 
 .footer a:hover {
-  color: #ff6f61; /* Warna ikon saat dihover */
+  color: pink; /* Warna ikon saat dihover */
 }
 
 /* Footer end */

@@ -1,126 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+      /* Root variables for custom colors and styles */
+      :root {
+        --background-color-pink: rgb(255, 208, 208);
+        --black: #130f40;
+        --light-color: #666;
+        --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        --border: 1rem solid rgba(0, 0, 0, 0.1);
+        --outline: 1rem solid rgba(0, 0, 0, 0.3);
+      }
 
-        header {
-            background-color: pink;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-        }
+      /* General reset and font */
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: all 0.2s linear;
+      }
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 7rem;
+      }
 
-        .contact-info {
-            flex: 1;
-            padding: 20px;
-            font-size: 1.1rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+      body {
+        background: #ffd0d0;
+      }
 
-        .contact-info h2 {
-            color: pink;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+      /* Header and Navbar */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 9%;
+        background: white;
+        box-shadow: var(--box-shadow);
+        font-size: 1rem;
+      }
 
-        .contact-info p {
-            line-height: 1.6;
-            text-align: center;
-        }
+      .header a {
+        text-decoration: none;
+        justify-content: space-between;
+      }
 
-        .map-container {
-            flex: 1;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      /* Logo */
+      .header .logo {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        color: var(--black);
+      }
 
-        .map-container img {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            border-radius: 8px;
-        }
+      /* Navbar Links */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
 
-        footer {
-            background-color: pink;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
-        }
+      .nav-links li a {
+        font-size: 2rem;
+        margin: 0 1rem;
+        color: var(--black);
+      }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 10px;
-            }
+      .nav-links li a:hover {
+        color: #ffd0d0;
+      }
 
-            .map-container img {
-                height: 300px;
-            }
-        }
+      /* Dropdown Menu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .nav-links li:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Icons */
+      .header .icons div {
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        border-radius: 0.5rem;
+        background: #eee;
+        color: var(--black);
+        font-size: 2rem;
+        margin-right: 0.3rem;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .header .icons div:hover {
+        background-color: #ffd0d0;
+        color: #fff;
+      }
+
+      #menu-btn {
+        display: none;
+      }
+
+      /* Search Form */
+      .header .search-form {
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        width: 50rem;
+        height: 5rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        box-shadow: var(--box-shadow);
+      }
+
+      .header .search-form.active {
+        right: 2rem;
+        transition: 0.4s linear;
+      }
+
+      .header .search-form input {
+        height: 100%;
+        width: 100%;
+        background: none;
+        text-transform: none;
+        font-size: 1.6rem;
+        color: var(--black);
+        padding: 0 1.5rem;
+      }
+
+      .header .search-form label {
+        font-size: 2.2rem;
+        padding-right: 1.5rem;
+        color: var(--black);
+        cursor: pointer;
+      }
+
+      .header .search-form label:hover {
+        color: #ffd0d0;
+      }
+      /* header dan navbar ending */
+
+      /* contact */
+      .container-contact {
+        padding: 2rem;
+        width: 1100px;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 80px;
+        margin-bottom: 90px;
+      }
+
+      .container-contact h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        color: #333;
+        margin-bottom: 1rem;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .contact-info {
+        font-size: 1.3rem;
+        line-height: 1.6;
+        color: #333;
+        font-family: "Poppins", sans-serif;
+        padding: 1.5rem;
+        border-bottom: 2px solid #ffd0d0;
+      }
+
+      .contact-info h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .contact-info p {
+        margin: 0.5rem 0;
+      }
+
+      .map-container {
+        text-align: center;
+      }
+
+      .map-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .contact-form {
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-form h2 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-family: "Poppins", sans-serif;
+        transition: border-color 0.3s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: #ff7b7b;
+      }
+
+      .contact-form button {
+        padding: 0.8rem 1.2rem;
+        background-color: #ff7b7b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-form button:hover {
+        background-color: #ff5050;
+      }
+
+      /* Footer style */
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Membuat footer mencakup seluruh lebar halaman */
+        background-color: white; /* Warna latar belakang footer */
+        padding: 20px 0;
+        text-align: center;
+        z-index: 10; /* Memastikan footer berada di atas elemen lainnya jika ada */
+      }
+
+      .footer a {
+        color: #333; /* Warna ikon sosmed */
+        margin: 0 10px; /* Jarak antar ikon */
+        transition: color 0.2s ease; /* Efek transisi saat hover */
+      }
+
+      .footer a:hover {
+        color: pink; /* Warna ikon saat dihover */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="header">
+      <a href="index.html" class="logo">LOGO</a>
+      <nav class="nav-container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="#">Product</a>
+            <!-- Dropdown Menu -->
+            <div class="dropdown-content">
+              <a href="ProductFace.html">Face Make Up</a>
+              <a href="ProductEye.html">Eye Make Up</a>
+              <a href="ProductLips.html">Lip Make Up</a>
+            </div>
+          </li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div
+          class="fas fa-shopping-cart"
+          id="cart-btn"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <span id="cart-count">0</span>
+        </div>
+        <div class="fas fa-user" id="user-btn"></div>
+      </div>
 
-    <header>
-        <h1>Contact Us</h1>
+      <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="Search Product" />
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
     </header>
+    <!-- header end -->
 
-    <div class="container">
-        <!-- Contact Info Section -->
-        <div class="contact-info">
-            <h2>Our Location</h2>
-            <p>
-                Visit us at the following location for more information or assistance:
-            </p>
-            <p>
-                1234 WasWesWos,<br>
-                Pink City, 56789<br>
-                Country Pinky
-            </p>
-            <p>
-                <strong>Email:</strong> contact@instaperfect.com<br>
-                <strong>Phone:</strong> +123 456 7890
-            </p>
-        </div>
-
-        <!-- Map Section -->
-        <div class="map-container">
-            <img src="https://www.beritateknologi.co.id/wp-content/uploads/2024/08/Google-Map.jpg" alt="Google Map" />
-        </div>
+    <div class="notification" id="notification">
+      <span id="notification-message"></span>
+    </div>
+    <!-- Offcanvas for Shopping Cart -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Shopping Cart</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label=" Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="cart-items" class="list-group">
+          <!-- Items will be added here dynamically -->
+        </ul>
+        <button class="btn btn-primary mt-3" onclick="goToCartPage()">
+          Go to Cart Page
+        </button>
+      </div>
     </div>
 
-    <footer>
-        &copy; 2024 INSTAPERFECT. All Rights Reserved.
-    </footer>
+    <!-- ISI KONTEN Contact -->
+    <!-- Contact Section -->
+    <div class="container-contact">
+      <h1>Contact Us</h1>
 
-</body>
+      <!-- Contact Info Section -->
+      <div class="contact-info">
+        <h2>Our Location</h2>
+        <p>
+          Visit us at the following location for more information or assistance:
+        </p>
+        <p>
+          1234 WasWesWos,<br />
+          Pink City, 56789<br />
+          Country Pinky
+        </p>
+        <p>
+          <strong>Email:</strong> contact@instaperfect.com<br />
+          <strong>Phone:</strong> +123 456 7890
+        </p>
+      </div>
+
+      <!-- Map Section -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4054470688275!2d112.58722277476784!3d-7.95698469206764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78825bc65e176b%3A0x954b33ee83283be2!2sUniversitas%20Ma%20Chung!5e0!3m2!1sid!2sid!4v1731600032332!5m2!1sid!2sid"
+          width="1050"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <!-- Contact Form Section -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form action="your-form-handler-url" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!--  END ISI KONTEN Contact -->
+
+    <!-- Footer Start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row m-2">
+          <div class="col-md-4 text-start">
+            <img src="logo.png" alt="Logo Instaperfect" height="50" />
+          </div>
+          <div class="col-md-4 text-center">
+            <p>&copy; 2024 INSTAPERFECT. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-4 text-end">
+            <a href="#" target="_blank"
+              ><i class="fab fa-facebook-f fa-2x"></i
+            ></a>
+            <a href="#" target="_blank"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let searchForm = document.querySelector(".search-form");
+
+      document.querySelector("#search-btn").onclick = () => {
+        searchForm.classList.toggle("active");
+      };
+
+      let cart = [];
+
+      function addToCart(productName, productImage, productPrice) {
+        cart.push({
+          name: productName,
+          image: productImage,
+          price: productPrice,
+        });
+        updateCartCount();
+        updateCartItems();
+        showNotification(productName);
+      }
+
+      function updateCartCount() {
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.textContent = cart.length;
+      }
+
+      function updateCartItems() {
+        const cartItemsElement = document.getElementById("cart-items");
+        cartItemsElement.innerHTML = "";
+        cart.forEach((item, index) => {
+          const listItem = document.createElement("li");
+
+          // Create image element
+          const img = document.createElement("img");
+          img.src = item.image;
+          img.alt = item.name;
+
+          // Create product name element
+          const productNameElement = document.createElement("span");
+          productNameElement.textContent = item.name;
+
+          // Create product price element
+          const productPriceElement = document.createElement("span");
+          productPriceElement.textContent = "Rp " + item.price;
+
+          // Create delete button
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "btn btn-danger btn-sm";
+          deleteButton.textContent = "Remove";
+          deleteButton.onclick = () => {
+            removeFromCart(index);
+          };
+
+          listItem.appendChild(img);
+          listItem.appendChild(productNameElement);
+          listItem.appendChild(productPriceElement);
+          listItem.appendChild(deleteButton);
+          cartItemsElement.appendChild(listItem);
+        });
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1); // Remove item from cart
+        updateCartCount(); // Update cart count
+        updateCartItems(); // Update cart items display
+      }
+
+      function goToCartPage() {
+        // Redirect to cart page
+        window.location.href = "cart.html";
+      }
+
+      function showNotification(productName) {
+        // Set notification message
+        const notificationMessage = document.getElementById(
+          "notification-message"
+        );
+        notificationMessage.textContent =
+          productName + " has been added to cart!";
+
+        // Show notification
+        const notification = document.getElementById("notification");
+        notification.classList.add("show");
+
+        // Hide notification after 3 seconds
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      // User Login or not
+      document
+        .getElementById("user-btn")
+        .addEventListener("click", function () {
+          window.location.href = "login.html"; // Ganti 'login.html' dengan path file halaman login Anda
+        });
+    </script>
+  </body>
 </html>

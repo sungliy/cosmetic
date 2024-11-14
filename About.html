@@ -1,95 +1,558 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Desktop View</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
+      /* Root variables for custom colors and styles */
+      :root {
+        --background-color-pink: rgb(255, 208, 208);
+        --black: #130f40;
+        --light-color: #666;
+        --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        --border: 1rem solid rgba(0, 0, 0, 0.1);
+        --outline: 1rem solid rgba(0, 0, 0, 0.3);
+      }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f3f3f3;
-            color: #333;
-        }
+      /* General reset and font */
+      * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: all 0.2s linear;
+      }
 
-        .container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 2rem auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 7rem;
+      }
 
-        .main-content {
-            text-align: center;
-            padding: 20px;
-        }
+      body {
+        background: #ffd0d0;
+      }
 
-        .main-content h2 {
-            color: pink;
-            margin-top: 20px;
-        }
+      /* Header and Navbar */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 9%;
+        background: white;
+        box-shadow: var(--box-shadow);
+        font-size: 1rem;
+      }
 
-        .main-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+      .header a {
+        text-decoration: none;
+        justify-content: space-between;
+      }
 
-        .main-content p {
-            line-height: 1.8;
-            margin-top: 10px;
-        }
+      /* Logo */
+      .header .logo {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        color: var(--black);
+      }
 
-        header, footer {
-            text-align: center;
-            background-color: pink;
-            color: white;
-            padding: 10px 0;
-        }
+      /* Navbar Links */
+      .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
 
-        footer {
-            margin-top: auto;
-        }
+      .nav-links li a {
+        font-size: 2rem;
+        margin: 0 1rem;
+        color: var(--black);
+      }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-        }
+      .nav-links li a:hover {
+        color: #ffd0d0;
+      }
+
+      /* Dropdown Menu */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .nav-links li:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Icons */
+      .header .icons div {
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 4.5rem;
+        border-radius: 0.5rem;
+        background: #eee;
+        color: var(--black);
+        font-size: 2rem;
+        margin-right: 0.3rem;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .header .icons div:hover {
+        background-color: #ffd0d0;
+        color: #fff;
+      }
+
+      #menu-btn {
+        display: none;
+      }
+
+      /* Search Form */
+      .header .search-form {
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        width: 50rem;
+        height: 5rem;
+        background-color: #fff;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        box-shadow: var(--box-shadow);
+      }
+
+      .header .search-form.active {
+        right: 2rem;
+        transition: 0.4s linear;
+      }
+
+      .header .search-form input {
+        height: 100%;
+        width: 100%;
+        background: none;
+        text-transform: none;
+        font-size: 1.6rem;
+        color: var(--black);
+        padding: 0 1.5rem;
+      }
+
+      .header .search-form label {
+        font-size: 2.2rem;
+        padding-right: 1.5rem;
+        color: var(--black);
+        cursor: pointer;
+      }
+
+      .header .search-form label:hover {
+        color: #ffd0d0;
+      }
+      /* header dan navbar ending */
+      /* Container for the About section */
+      .about-container {
+        width: 90%;
+        margin-top: 80px;
+        margin-left: 80px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .about-container h2 {
+        color: #ff66a3;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .about-container p {
+        color: var(--light-color);
+        font-size: 1.6rem;
+        line-height: 1.8;
+      }
+
+      .about-container img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-top: 15px;
+      }
+      /* end ABOUT */
+
+      /* Our Team section styling */
+      .team-container {
+        width: 90%;
+        margin-top: 20px;
+        margin-left: 80px;
+        margin-bottom: 90px;
+        text-align: center;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-container h2 {
+        color: #ff66a3;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .team-members {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .team-member {
+        flex: 1 1 300px;
+        background-color: #ffd0d0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.2s;
+      }
+
+      .team-member img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      .team-member h3 {
+        color: var(--black);
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+      }
+
+      .team-member p {
+        color: var(--light-color);
+        font-size: 1.4rem;
+      }
+
+      .social-icons a {
+        color: #333;
+        margin: 0 5px;
+        font-size: 1.5rem;
+        transition: color 0.2s;
+        font-size: 30px;
+      }
+
+      .social-icons a:hover {
+        color: #ff66a3;
+      }
+      /* end our team */
+      /* Footer style */
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Membuat footer mencakup seluruh lebar halaman */
+        background-color: white; /* Warna latar belakang footer */
+        padding: 20px 0;
+        text-align: center;
+        z-index: 10; /* Memastikan footer berada di atas elemen lainnya jika ada */
+      }
+
+      .footer a {
+        color: #333; /* Warna ikon sosmed */
+        margin: 0 10px; /* Jarak antar ikon */
+        transition: color 0.2s ease; /* Efek transisi saat hover */
+      }
+
+      .footer a:hover {
+        color: pink; /* Warna ikon saat dihover */
+      }
     </style>
-</head>
-<body>
-    <header>
-        <h1>ABOUT INSTAPERFECT</h1>
-    </header>
-
-    <div class="container">
-        <div class="main-content">
-            <img src="https://img.freepik.com/free-psd/cute-gradient-instagram-post-set-psd_174241-162.jpg?t=st=1730954550~exp=1730958150~hmac=bd68ba90788021b4527df0066f2425fc484457ff336e8d62717079631339d9dd&w=1380">
-            <h2>ABOUT US</h2>
-            <p>
-                Welcome to INSTAPERFECT, your trusted platform for high-quality beauty products. We offer a curated range of items combining innovation and convenience to elevate your daily beauty routine.
-                Our mission is to help you find the perfect products to enhance your appearance and confidence. Each of our offerings is designed for optimal results so you can feel assured and beautiful at all times.
-            </p>
+  </head>
+  <body>
+    <!-- header start -->
+    <header class="header">
+        <a href="index.html" class="logo" style="color: #ff99a3 ;">INSTPRFCT</a>
+      <nav class="nav-container">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="#">Product</a>
+            <!-- Dropdown Menu -->
+            <div class="dropdown-content">
+              <a href="ProductFace.html">Face Make Up</a>
+              <a href="ProductEye.html">Eye Make Up</a>
+              <a href="ProductLips.html">Lip Make Up</a>
+            </div>
+          </li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="About.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div
+          class="fas fa-shopping-cart"
+          id="cart-btn"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <span id="cart-count">0</span>
         </div>
+        <div class="fas fa-user" id="user-btn"></div>
+      </div>
+
+      <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="Search Product" />
+        <label for="search-box" class="fas fa-search"></label>
+      </form>
+    </header>
+    <!-- header end -->
+
+    <div class="notification" id="notification">
+      <span id="notification-message"></span>
+    </div>
+    <!-- Offcanvas for Shopping Cart -->
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Shopping Cart</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label=" Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul id="cart-items" class="list-group">
+          <!-- Items will be added here dynamically -->
+        </ul>
+        <button class="btn btn-primary mt-3" onclick="goToCartPage()">
+          Go to Cart Page
+        </button>
+      </div>
     </div>
 
-    <footer>
-        &copy; 2024 INSTAPERFCET. All Rights Reserved.
+    <!-- ISI KONTEN ABOUT -->
+    <!-- About Section -->
+    <div class="about-container">
+      <h2>About Instaperfect</h2>
+      <p>
+        Welcome to Instaperfect, where beauty meets elegance. Our mission is to
+        empower individuals through high-quality, affordable makeup that
+        enhances their natural beauty. From bold colors to subtle shades, we
+        offer a wide range of products suitable for every occasion.
+      </p>
+      <img
+        src="https://img.freepik.com/free-psd/cute-gradient-instagram-post-set-psd_174241-162.jpg?t=st=1730954550~exp=1730958150~hmac=bd68ba90788021b4527df0066f2425fc484457ff336e8d62717079631339d9dd&w=1380"
+        alt="About Instaperfect"
+      />
+      <p>
+        Instaperfect started as a passion project and has grown into a community
+        favorite, trusted by thousands of beauty enthusiasts worldwide. Join us
+        as we celebrate individuality and redefine beauty standards!
+      </p>
+    </div>
+    <!--  END ISI KONTEN ABOUT -->
+
+    <!-- Our Team Section -->
+    <div class="team-container">
+      <h2>Our Team</h2>
+      <p>Meet the talented developers behind Instaperfect.</p>
+      <div class="team-members">
+        <div class="team-member">
+          <img src="https://via.placeholder.com/100" alt="Developer 1" />
+          <h3>Sarah Lee</h3>
+          <p>Front-End Developer</p>
+          <p>
+            Sarah brings creativity to the team with her skills in HTML, CSS,
+            and JavaScript, ensuring our site is both beautiful and functional.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/100" alt="Developer 2" />
+          <h3>John Doe</h3>
+          <p>Back-End Developer</p>
+          <p>
+            John specializes in server management and database design, making
+            sure our platform runs smoothly and securely for all users.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Our Team Section -->
+
+    <!-- Footer Start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row m-2">
+          <div class="col-md-4 text-start">
+            <img src="logo.png" alt="Logo Instaperfect" height="50" />
+          </div>
+          <div class="col-md-4 text-center">
+            <p>&copy; 2024 INSTAPERFECT. All Rights Reserved.</p>
+          </div>
+          <div class="col-md-4 text-end">
+            <a href="#" target="_blank"
+              ><i class="fab fa-facebook-f fa-2x"></i
+            ></a>
+            <a href="#" target="_blank"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
     </footer>
-</body>
+    <!-- Footer End-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let searchForm = document.querySelector(".search-form");
+
+      document.querySelector("#search-btn").onclick = () => {
+        searchForm.classList.toggle("active");
+      };
+
+      let cart = [];
+
+      function addToCart(productName, productImage, productPrice) {
+        cart.push({
+          name: productName,
+          image: productImage,
+          price: productPrice,
+        });
+        updateCartCount();
+        updateCartItems();
+        showNotification(productName);
+      }
+
+      function updateCartCount() {
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.textContent = cart.length;
+      }
+
+      function updateCartItems() {
+        const cartItemsElement = document.getElementById("cart-items");
+        cartItemsElement.innerHTML = "";
+        cart.forEach((item, index) => {
+          const listItem = document.createElement("li");
+
+          // Create image element
+          const img = document.createElement("img");
+          img.src = item.image;
+          img.alt = item.name;
+
+          // Create product name element
+          const productNameElement = document.createElement("span");
+          productNameElement.textContent = item.name;
+
+          // Create product price element
+          const productPriceElement = document.createElement("span");
+          productPriceElement.textContent = "Rp " + item.price;
+
+          // Create delete button
+          const deleteButton = document.createElement("button");
+          deleteButton.className = "btn btn-danger btn-sm";
+          deleteButton.textContent = "Remove";
+          deleteButton.onclick = () => {
+            removeFromCart(index);
+          };
+
+          listItem.appendChild(img);
+          listItem.appendChild(productNameElement);
+          listItem.appendChild(productPriceElement);
+          listItem.appendChild(deleteButton);
+          cartItemsElement.appendChild(listItem);
+        });
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1); // Remove item from cart
+        updateCartCount(); // Update cart count
+        updateCartItems(); // Update cart items display
+      }
+
+      function goToCartPage() {
+        // Redirect to cart page
+        window.location.href = "cart.html";
+      }
+
+      function showNotification(productName) {
+        // Set notification message
+        const notificationMessage = document.getElementById(
+          "notification-message"
+        );
+        notificationMessage.textContent =
+          productName + " has been added to cart!";
+
+        // Show notification
+        const notification = document.getElementById("notification");
+        notification.classList.add("show");
+
+        // Hide notification after 3 seconds
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      // User Login or not
+      document
+        .getElementById("user-btn")
+        .addEventListener("click", function () {
+          window.location.href = "login.html"; // Ganti 'login.html' dengan path file halaman login Anda
+        });
+    </script>
+  </body>
 </html>
