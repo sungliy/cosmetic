@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;&display=swap"
       rel="stylesheet"
     />
-    <title>Product Eye Page</title>
+    <title>Product Lip Page</title>
 
     <style>
       --root {
@@ -282,6 +282,8 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         position: relative;
         overflow: hidden;
+        margin: 0 0 5px 0;
+        margin-right: 0;
       }
       .product img {
         transition: transform 0.3s;
@@ -310,19 +312,34 @@
         transform: scale(1.05);
       }
 
-      .modal-body {
+      /* Center the modal and increase content size */
+      .modal-content {
+        padding: 20px;
+        font-size: 1.2rem;
+      }
+
+      /* Ensure image and content alignment */
+      .modal-body .row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
       }
+
       .modal-body img {
-        max-width: 200px; /* Mengatur lebar gambar modal */
+        max-width: 100%;
         height: auto;
-        margin-right: 20px;
+        margin-bottom: 15px;
       }
-      .modal-title {
-        font-weight: bold;
+
+      .modal-body h5 {
+        font-size: 1.8rem;
+        margin-top: 0;
       }
+
+      .modal-body p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
       .modal-footer {
         justify-content: center;
       }
@@ -346,26 +363,25 @@
 
       /* Footer style */
       .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; /* Membuat footer mencakup seluruh lebar halaman */
-    background-color: #f8f9fa; /* Warna latar belakang footer */
-    padding: 20px 0;
-    text-align: center;
-    z-index: 10; /* Memastikan footer berada di atas elemen lainnya jika ada */
-}
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Membuat footer mencakup seluruh lebar halaman */
+        background-color: #f8f9fa; /* Warna latar belakang footer */
+        padding: 20px 0;
+        text-align: center;
+        z-index: 10; /* Memastikan footer berada di atas elemen lainnya jika ada */
+      }
 
-.footer a {
-    color: #333; /* Warna ikon sosmed */
-    margin: 0 10px; /* Jarak antar ikon */
-    transition: color 0.3s ease; /* Efek transisi saat hover */
-}
+      .footer a {
+        color: #333; /* Warna ikon sosmed */
+        margin: 0 10px; /* Jarak antar ikon */
+        transition: color 0.3s ease; /* Efek transisi saat hover */
+      }
 
-.footer a:hover {
-    color: pink; /* Warna ikon saat dihover */
-}
-
+      .footer a:hover {
+        color: pink; /* Warna ikon saat dihover */
+      }
 
       /* Footer end */
     </style>
@@ -373,7 +389,7 @@
   <body>
     <!-- header start -->
     <header class="header">
-      <a href="index.html" class="logo" style="color: #ff99a3 ;">INSTPRFCT</a>
+      <a href="index.html" class="logo" style="color: #ff99a3">INSTPRFCT</a>
       <nav class="nav-container">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -456,9 +472,7 @@
               <a href="#" class="filter" data-category="all">Tampilkan Semua</a>
             </li>
             <li>
-              <a href="#" class="filter" data-category="lipmatte"
-                >Lip Matte</a
-              >
+              <a href="#" class="filter" data-category="lipmatte">Lip Matte</a>
             </li>
             <li>
               <a href="#" class="filter" data-category="lipcryon">Lip Cryon</a>
@@ -473,7 +487,6 @@
         <div class="col-md-9">
           <div class="row fs-2" id="product-list">
             <div class="col-md-3 mb-4 product" data-category="lipmatte">
-
               <img
                 src="https://images.tokopedia.net/img/cache/700/VqbcmM/2024/4/8/874c1416-1451-4a55-b141-e4013ae17706.jpg"
                 alt="Instaperfect Pink Lipmatte"
@@ -494,7 +507,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="lipcryon">
-
               <img
                 src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/10/20/579936f0-5289-4cd0-8196-ced4260e7382.jpg"
                 alt="Instaperfect Pink LipCryon"
@@ -515,7 +527,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="matteliquid">
-
               <img
                 src="https://down-id.img.susercontent.com/file/id-11134207-7r98s-lyn42dr6gc1460"
                 alt="Instaperfect Pink Matte Liquid"
@@ -573,7 +584,7 @@
       aria-labelledby="productModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="productModalLabel">Detail Produk</h5>
@@ -585,13 +596,19 @@
             ></button>
           </div>
           <div class="modal-body">
-            <img src="" id="modal-product-image" alt="" class="img-fluid" />
-            <div>
-              <h5 id="modal-product-name"></h5>
-              <p id="modal-product-description"></p>
-              <p class="text-success" id="modal-product-price"></p>
-              <p class="text-success rating" id="modal-product-rating"></p>
-              <p class="stock-info" id="modal-product-stock"></p>
+            <div class="row">
+              <!-- Image on the left -->
+              <div class="col-md-5">
+                <img src="" id="modal-product-image" alt="" class="img-fluid" />
+              </div>
+              <!-- Text content on the right -->
+              <div class="col-md-7">
+                <h5 id="modal-product-name"></h5>
+                <p id="modal-product-description"></p>
+                <p class="text-success" id="modal-product-price"></p>
+                <p class="text-success rating" id="modal-product-rating"></p>
+                <p class="stock-info" id="modal-product-stock"></p>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -614,7 +631,7 @@
         </div>
       </div>
     </div>
-    <!-- enddd -->
+    <!-- end -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

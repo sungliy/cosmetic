@@ -162,30 +162,23 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      // Menambahkan event listener untuk form submit
       document
         .getElementById("loginForm")
         .addEventListener("submit", function (event) {
-          event.preventDefault(); // Mencegah pengiriman form secara default
+          event.preventDefault(); // Mencegah form untuk reload halaman secara default
 
-          // Ambil nilai email dan password
+          // Mendapatkan nilai email dan password
           const email = document.getElementById("email").value;
           const password = document.getElementById("password").value;
 
-          // Data pengguna untuk validasi
-          const users = [
-            { email: "user1@example.com", password: "password1" },
-            { email: "user2@example.com", password: "password2" },
-          ];
-
-          // Validasi kredensial
-          const user = users.find(
-            (user) => user.email === email && user.password === password
-          );
-          if (user) {
-            // Jika validasi berhasil, arahkan ke halaman profile
+          // Logika login sederhana (contoh)
+          // Misalnya, validasi jika email dan password tidak kosong atau sesuai syarat
+          if (email && password) {
+            // Di sini, arahkan pengguna ke halaman profile.html
             window.location.href = "profile.html";
           } else {
-            alert("Email atau password salah!");
+            alert("Please enter your email and password.");
           }
         });
     </script>

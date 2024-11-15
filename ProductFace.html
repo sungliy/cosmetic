@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;&display=swap"
       rel="stylesheet"
     />
-    <title>Product Eye Page</title>
+    <title>Product Face Page</title>
 
     <style>
       --root {
@@ -237,14 +237,15 @@
       /* Product Eye page style */
       .container {
         margin-top: 10rem;
+        /* margin-left: 0; */
       }
       .header-title {
-    text-align: left; /* atau 'right' untuk kanan */
-    color: white;
-    margin: 30px 0;
-    font-size: 3rem;
-    font-weight: bold;
-}
+        text-align: left; /* atau 'right' untuk kanan */
+        color: white;
+        margin: 30px 0;
+        font-size: 3rem;
+        font-weight: bold;
+      }
 
       .browse {
         font-size: 1.5rem;
@@ -283,6 +284,8 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         position: relative;
         overflow: hidden;
+        margin: 0 0 5px 0;
+        margin-right: 0;
       }
       .product img {
         transition: transform 0.3s;
@@ -311,19 +314,34 @@
         transform: scale(1.05);
       }
 
-      .modal-body {
+      /* Center the modal and increase content size */
+      .modal-content {
+        padding: 20px;
+        font-size: 1.2rem;
+      }
+
+      /* Ensure image and content alignment */
+      .modal-body .row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
       }
+
       .modal-body img {
-        max-width: 200px; /* Mengatur lebar gambar modal */
+        max-width: 100%;
         height: auto;
-        margin-right: 20px;
+        margin-bottom: 15px;
       }
-      .modal-title {
-        font-weight: bold;
+
+      .modal-body h5 {
+        font-size: 1.8rem;
+        margin-top: 0;
       }
+
+      .modal-body p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
       .modal-footer {
         justify-content: center;
       }
@@ -370,7 +388,7 @@
   <body>
     <!-- header start -->
     <header class="header">
-      <a href="index.html" class="logo" style="color: #ff99a3 ;">INSTPRFCT</a>
+      <a href="index.html" class="logo" style="color: #ff99a3">INSTPRFCT</a>
       <nav class="nav-container">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
@@ -444,7 +462,7 @@
     <div class="container">
       <h3 class="header-title">FACE PRODUCT</h3>
       <!-- Carousel -->
-  
+
       <div class="row">
         <div class="col-md-3">
           <h2 class="browse">BROWSE / FACE PRODUCT</h2>
@@ -466,7 +484,9 @@
               >
             </li>
             <li>
-              <a href="#" class="filter" data-category="highlighter">Highlghter</a>
+              <a href="#" class="filter" data-category="highlighter"
+                >Highlghter</a
+              >
             </li>
             <li>
               <a href="#" class="filter" data-category="blush-on">Blush On</a>
@@ -476,7 +496,6 @@
         <div class="col-md-9">
           <div class="row fs-2" id="product-list">
             <div class="col-md-3 mb-4 product" data-category="foundation">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2022/09/PDP-Instaperfect_Skinfocus-Cover-Foundation_Shade-43-510x510.png"
                 alt="Instaperfect Foundi 01"
@@ -497,7 +516,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="foundation">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2022/09/PDP-Instaperfect_Skinfocus-Cover-Foundation_Shade-43-510x510.png"
                 alt="Instaperfect Foundi 02"
@@ -518,7 +536,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="foundation">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2022/09/PDP-Instaperfect_Skinfocus-Cover-Foundation_Shade-43-510x510.png"
                 alt="Instaperfect Foundi 03"
@@ -539,7 +556,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="cushion">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2023/08/IP-SKINCOVER-AIR-CUSHION-43-510x510.jpg"
                 alt="Instaperfect Cushion 01"
@@ -560,7 +576,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="cushion">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2023/08/IP-SKINCOVER-AIR-CUSHION-43-510x510.jpg"
                 alt="Instaperfect Cushion 02"
@@ -581,7 +596,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="cushion-refill">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2023/08/IP-SKINCOVER-AIR-CUSHION-11-510x510.jpg"
                 alt="Instaperfect Cushion Refill 01"
@@ -602,7 +616,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="highlighter">
-              
               <img
                 src="https://shop.myinstaperfect.com/wp-content/uploads/2022/09/PDP-Instaperfect_Hi-Glow-Fluid-Highlighter_Shade-Rose-Quartz-510x510.png"
                 alt="Instaperfect Skin Tint 01"
@@ -623,7 +636,6 @@
               </button>
             </div>
             <div class="col-md-3 mb-4 product" data-category="blush-on">
-              
               <img
                 src="https://down-id.img.susercontent.com/file/sg-11134201-7rdxg-m14zuafe7o9q42"
                 alt="Instaperfect Blush On 01"
@@ -681,7 +693,7 @@
       aria-labelledby="productModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="productModalLabel">Detail Produk</h5>
@@ -693,13 +705,19 @@
             ></button>
           </div>
           <div class="modal-body">
-            <img src="" id="modal-product-image" alt="" class="img-fluid" />
-            <div>
-              <h5 id="modal-product-name"></h5>
-              <p id="modal-product-description"></p>
-              <p class="text-success" id="modal-product-price"></p>
-              <p class="text-success rating" id="modal-product-rating"></p>
-              <p class="stock-info" id="modal-product-stock"></p>
+            <div class="row">
+              <!-- Image on the left -->
+              <div class="col-md-5">
+                <img src="" id="modal-product-image" alt="" class="img-fluid" />
+              </div>
+              <!-- Text content on the right -->
+              <div class="col-md-7">
+                <h5 id="modal-product-name"></h5>
+                <p id="modal-product-description"></p>
+                <p class="text-success" id="modal-product-price"></p>
+                <p class="text-success rating" id="modal-product-rating"></p>
+                <p class="stock-info" id="modal-product-stock"></p>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -722,7 +740,7 @@
         </div>
       </div>
     </div>
-    <!-- enddd -->
+    <!-- end -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
